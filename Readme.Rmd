@@ -1,0 +1,23 @@
+## README
+
+Welcome to the //BMI Tracking App//, a sleek and user-friendly tool built with **R** and **Shiny** to calculate your Body Mass Index (BMI) instantly. Whether you're monitoring your health, setting fitness goals, or just curious, this app provides a quick way to compute your BMI and understand your weight category based on WHO standards—all with a few clicks!
+
+📊 What is BMI?
+Body Mass Index (BMI) is a measure of body fat based on weight and height.
+
+The app categorizes BMI according to WHO standards:
+#Underweight: < 18.5
+#Normal weight: 18.5–24.9
+#Overweight: 25–29.9
+#Obese: ≥ 30
+
+🚀 Features
+Simple Input: Enter your weight (kg) and height (m) to calculate BMI.
+Instant Results: Get your BMI value rounded to two decimal places.
+WHO Categories: Automatically classifies your BMI as Underweight, Normal weight, Overweight, or Obese.
+Interactive UI: Built with Shiny for a responsive, web-based experience.
+Error Handling: Validates inputs to prevent errors (e.g., zero or negative height).
+Open Source: Free to use
+
+
+
