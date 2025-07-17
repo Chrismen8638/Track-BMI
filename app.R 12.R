@@ -1,11 +1,12 @@
-## Tracking BMI Application
-install.packages("shiny")
+# Install shiny package if not already installed
+if (!require(shiny)) install.packages("shiny")
 
 install.packages("shiny", dependencies = TRUE)
+# Load shiny library
 install.packages("Rcpp")
 require(shiny)
 
- 
+# Define the User Interface (UI)
 ui = fluidPage(
   titlePanel("BMI Calculator"),
   sidebarLayout(
@@ -23,15 +24,15 @@ ui = fluidPage(
   )
 )
 
-# server logic
+# Define the Server Logic
 server <- function(input, output) {
   # Reactive expression to calculate BMI when the button is clicked
   bmi <- eventReactive(input$calculate, {
     weight <- input$weight
     height <- input$height
     if (height > 0) {
-      bmi_value <- weight / (height^2)
-  round(bmi_value, 5) # Round to 5 decimal places
+      bmi_value <- (weight / (height/100)^2)
+  round(bmi_value, 2) # Round to 2 decimal places
     } else {
       NA # Return NA if height is 0 or negative
     }
@@ -54,9 +55,9 @@ output$bmi_category <- renderText({
     bmi_value <- bmi()
     if (bmi_value < 18.5) {
       "Category: Underweight"
-    } else if (bmi_value >= 18.5 && bmi_value < 25.0) {
+    } else if (bmi_value >= 18.5 && bmi_value < 25) {
       "Category: Normal weight"
-    } else if (bmi_value >= 25.0 && bmi_value < 30.0) {
+    } else if (bmi_value >= 25 && bmi_value < 30) {
       "Category: Overweight"
     } else {
       "Category: Obese"
@@ -67,13 +68,3 @@ output$bmi_category <- renderText({
 
 
 shinyApp(ui = ui, server = server)
-
-
-install.packages("rsconnect")
-
-library(rsconnect)
-rsconnect::deployApp("C:/Users/User/Desktop/BMI1")
-
-
-
-
