@@ -67,3 +67,14 @@ output$bmi_category <- renderText({
 
 
 shinyApp(ui = ui, server = server)
+
+
+install.packages("rsconnect")
+
+library(rsconnect)
+rsconnect::deployApp("C:/Users/User/Documents/R project")
+
+
+
+
+
